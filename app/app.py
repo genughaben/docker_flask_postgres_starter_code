@@ -16,6 +16,12 @@ class Person(db.Model):
 
 
 db.create_all()
+persons_count = Person.query.count()
+print(f'persons count: ${persons_count}')
+if persons_count < 1:
+    person = Person(name='Frank')
+    db.session.add(person)
+    db.session.commit()
 
 
 @app.route('/')
