@@ -14,10 +14,14 @@ class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
 
+    def __repr__(self):
+        return "<Person(id='%s', name='%s')>" % self.id, self.name
+
+
 
 db.create_all()
 persons_count = Person.query.count()
-print(f'persons count: ${persons_count}')
+print(f'persons count: {persons_count}')
 if persons_count < 1:
     person = Person(name='Frank')
     db.session.add(person)

@@ -11,7 +11,7 @@ RUN pip install -r /requirements.txt
 ADD . /code
 WORKDIR /code
 
-RUN adduser --disabled-login user
+RUN useradd -ms /bin/bash user
 USER user
 
 CMD ["bash", "app/start.sh"]
