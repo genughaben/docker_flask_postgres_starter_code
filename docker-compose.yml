@@ -2,17 +2,17 @@ version: '3'
 
 services:
    db:
-      image: postgres:10.10-alpine
-      restart: always
-      port:
-        - "5432:5432"
-      environment:
-          POSTGRES_DB: 'example'
-          POSTGRES_USER: 'postgres'
-          POSTGRES_PASSWORD: 'docker'
-      volumes:
-         - ./db:/var/lib/postgresql/data
-          # - ./data:/data\
+    image: postgres:10.10-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+        POSTGRES_DB: 'example'
+        POSTGRES_USER: 'postgres'
+        POSTGRES_PASSWORD: 'docker'
+    volumes:
+       - ./db:/var/lib/postgresql/data
+        # - ./data:/data\
 
    app:
      build:
